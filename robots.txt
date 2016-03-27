@@ -1,5 +1,4 @@
 # www.robotstxt.org/
-# This is a sample line to demonstrate the git pull command
 # Allow crawling of all content
 User-agent: *
 Disallow:
