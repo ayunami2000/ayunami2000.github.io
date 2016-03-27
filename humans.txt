@@ -1,7 +1,7 @@
 # humanstxt.org/
 # The humans responsible & technology colophon
 # this is a demo of git pull command
-
+# this is a mac demo
 # TEAM
 
     <name> -- <role> -- <twitter>
