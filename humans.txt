@@ -4,6 +4,7 @@
 # this is a mac demo..2
 # SSH Communication based on password
 # TEAM
+#some change ---now
 
     <name> -- <role> -- <twitter>
 
