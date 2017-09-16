@@ -13,6 +13,9 @@
                 document.querySelectorAll(".tab")[3].style.visibility="hidden";
                 document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
             }
+            function updOut(){
+                document.querySelectorAll(".tab")[3].src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[3].value)+"'></script>"+document.querySelectorAll(".tab")[0].value);
+            }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -21,12 +24,12 @@
         <textarea class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
         <textarea class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
         <textarea class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
-        <iframe id="output" class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" src="data:text/html,"></iframe>
+        <iframe class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" src="data:text/html,"></iframe>
         <div style="position:absolute;right:0;bottom:0;width:100px;height:100%;">
             <span style="position:absolute;right:0;bottom:75%;"><a href="javascript:;" onclick="tab(0);">HTML</a></span>
             <span style="position:absolute;right:0;bottom:50%;"><a href="javascript:;" onclick="tab(1);">CSS</a></span>
             <span style="position:absolute;right:0;bottom:25%;"><a href="javascript:;" onclick="tab(2);">JS</a></span>
-            <span style="position:absolute;right:0;bottom:0%;"><a href="javascript:;" onclick="tab(3);">Output</a></span>
+            <span style="position:absolute;right:0;bottom:0%;"><a href="javascript:;" onclick="tab(3);updOut();">Output</a></span>
         </div>
     </body>
 </html>
