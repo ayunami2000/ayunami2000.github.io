@@ -60,25 +60,20 @@
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 document.querySelector("#fscreenBtn").style.display="initial";
             }
-            /*
+            
             function save(){
-                var url = window.location.origin;
-                for(i=0;i<3;i++){
-                    url+=btoa(document.querySelectorAll(".tab")[i].value)+"|";
-                    if(document.querySelectorAll(".tab")[i].style.display !== "none"){
-                        url+=toString(i);
+                var urlParams = new URLSearchParams(window.location.search);
+                for(i=0;i<4;i++){
+                    if(document.querySelectorAll(".tab")[i].style.display!="none"){
+                        var url = window.location.origin+urlParams.append('tab', toString(i));
                     }
-                }
-                if(document.querySelectorAll(".tab")[3].style.display !== "none"){
-                    url+="3";
                 }
                 if (history.pushState) {
                     window.history.pushState({path:url},'',url);
                 }
-            }*/
+            }
             window.onload=function(){
                 var urlParams = new URLSearchParams(window.location.search);
-                console.log(urlParams.get('tab'));
                 console.log(urlParams.append('tab', '1'));
                 if(urlParams.has('html')){
                     document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html'));
@@ -92,7 +87,8 @@
                 if(urlParams.has('tab')){
                     tab(urlParams.get('tab'));
                 }else{
-                tab(0);
+                    tab(0);
+                    output();
                 }
             }
         </script>
