@@ -75,7 +75,7 @@
                     document.querySelectorAll(".tab")[1].value=atob(urlParams.get('css'));
                 }
                 if(urlParams.has('js')){
-                    document.querySelectorAll(".tab")[2].value=atob(urlParams.has('js'));
+                    document.querySelectorAll(".tab")[2].value=atob(urlParams.get('js'));
                 }
                 if(urlParams.has('tab')){
                     tab(parseInt(urlParams.get('tab')));
