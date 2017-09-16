@@ -76,19 +76,20 @@
                 }
             }
             window.onload=function(){
-                if(window.location.search.slice(1).split("&")[0] !== ""){
-                    document.querySelectorAll(".tab")[0].value=atob(window.location.search.slice(1).split("&")[0]);
+                if(window.location.search.get("html")){
+                    document.querySelectorAll(".tab")[0].value=atob(window.location.search.get("html"));
                 }
-                if(window.location.search.slice(1).split("&")[1] !== ""){
-                    document.querySelectorAll(".tab")[1].value=atob(window.location.search.slice(1).split("&")[1]);
+                if(window.location.search.get("css")){
+                    document.querySelectorAll(".tab")[1].value=atob(window.location.search.get("css"));
                 }
-                if(window.location.search.slice(1).split("&")[2] !== ""){
-                    document.querySelectorAll(".tab")[2].value=atob(window.location.search.slice(1).split("&")[2]);
+                if(window.location.search.get("js")){
+                    document.querySelectorAll(".tab")[2].value=atob(window.location.search.get("js"));
                 }
-                //if(window.location.search.slice(1).split("&")[3] === 0||1||2||3){
-                //    tab(window.location.search.slice(1).split("&")[3]);
-                //}
+                if(window.location.search.get("tab")){
+                    tab(window.location.search.get("tab"));
+                }else{
                 tab(0);
+                }
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
