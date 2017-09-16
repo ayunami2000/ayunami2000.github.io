@@ -41,7 +41,7 @@
                 div.tab,div.tab:hover,div.tab:active,div.tab:focus{}
             }
             /* Landscape */
-            @media screen and (qorientation:landscape) {
+            @media screen and (orientation:landscape) {
                 div.tab,div.tab:hover,div.tab;active,div.tab:focus{}
             }
         </style>
@@ -55,7 +55,7 @@
                 document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
             }
             function updOut(){
-                document.querySelectorAll("#output")[3].src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
+                document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
             }
             window.onload=function(){
                 tab(0);
