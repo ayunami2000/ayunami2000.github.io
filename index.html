@@ -78,7 +78,7 @@
             <span style="position:absolute;right:0;bottom:30%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(2);">JS</a></span>
             <span style="position:absolute;right:0;bottom:15%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(3);output();">Output</a></span>
         </div>
-        <button id="fscreenBtn" style="position:absolute;top:0;right:0;display:none;" onclick="if(this.value!='X'){document.querySelector('#fscr').style.display='inline';document.querySelector('#fscr').src=document.querySelector('#output').src;document.querySelector('#output').src='data:text/html,';this.value='X';}else{document.querySelector('#fscr').style.display='none';document.querySelector('#output').src=document.querySelector('#fscr').src;document.querySelector('#fscr').src='data:text/html,';this.value='Fullscreen';}">Fullscreen</button>
-        <iframe id="fscr" src="data:text/html," style="width:100%;height:calc(100% - 75px);position:absolute;top:75px;left:0;right:0;bottom:0;z-index:15;"></iframe>
+        <button id="fscreenBtn" style="position:absolute;top:0;right:0;display:none;" onclick="if(this.innerHTML!='X'){document.querySelector('#fscr').style.display='inline';document.querySelector('#fscr').src=document.querySelector('#output').src;document.querySelector('#output').src='data:text/html,';this.innerHTML='X';}else{document.querySelector('#fscr').style.display='none';document.querySelector('#output').src=document.querySelector('#fscr').src;document.querySelector('#fscr').src='data:text/html,';this.innerHTML='Fullscreen';}">Fullscreen</button>
+        <iframe id="fscr" src="data:text/html," style="background-color:white;border:0;width:100%;height:calc(100% - 75px);position:absolute;top:75px;left:0;right:0;bottom:0;z-index:15;"></iframe>
     </body>
 </html>
