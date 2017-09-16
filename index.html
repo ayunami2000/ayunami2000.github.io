@@ -78,7 +78,7 @@
                     document.querySelectorAll(".tab")[2].value=atob(urlParams.has('js'));
                 }
                 if(urlParams.has('tab')){
-                    tab(urlParams.get('tab'));
+                    tab(parseInt(urlParams.get('tab')));
                 }else{
                     tab(0);
                 }
