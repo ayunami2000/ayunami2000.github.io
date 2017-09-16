@@ -15,6 +15,7 @@
             }
             function updOut(){
                 document.querySelectorAll(".tab")[3].src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[3].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
+                document.querySelectorAll(".tab")[3].contentDocument.location.reload(true);
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
