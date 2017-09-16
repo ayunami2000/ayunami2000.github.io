@@ -85,9 +85,10 @@
                 if(window.location.search.slice(1).split("&")[2] !== ""){
                     document.querySelectorAll(".tab")[2].value=atob(window.location.search.slice(1).split("&")[2]);
                 }
-                if(window.location.search.slice(1).split("&")[3] === 0||1||2||3){
-                    tab(window.location.search.slice(1).split("&")[3]);
-                }else{tab(0);}
+                //if(window.location.search.slice(1).split("&")[3] === 0||1||2||3){
+                //    tab(window.location.search.slice(1).split("&")[3]);
+                //}
+                tab(0);
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
