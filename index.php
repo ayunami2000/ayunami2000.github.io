@@ -91,7 +91,7 @@
                 }else{
                 tab(0);
                 }*/
-            tab(0);
+            tab(<?php if(isset($_GET['tab'])){echo $_GET['tab'];}else{echo "0";} ?>);
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
