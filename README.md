@@ -1,13 +1,8 @@
-# My Project
-This is a simple website project for showing how to use git and github together
+# GitHub Website
+woooo im awesome
 
-## Introduction
-This is example is to show different parts of the git repository and various commands using a web project
+## YouTube
+http://sfg.id0t.x10.mx
 
-## Purpose
-As stated above, the main pupose is to provide simple examples for Git training demos.
-
-## Deployment
-This is simple web project, deployment can be on any web server or even local file system.
-
-## How to contribute
+## iD0t
+http://iD0t.x10.mx
