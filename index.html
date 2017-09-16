@@ -66,8 +66,8 @@
                 history.pushState({urlPath:url},"",url);
             }
             window.onload=function(){
-                if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
                 var urlParams = new URLSearchParams(window.location.search);
+                if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
                 if(urlParams.has('html')){
                     document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html'));
                 }
