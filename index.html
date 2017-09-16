@@ -41,10 +41,10 @@
                 document.querySelectorAll(".tab")[0].style.visibility="visible";
             };
             function tab(tbNum){
-                document.querySelectorAll(".tab")[0].style.visibility="hidden";
-                document.querySelectorAll(".tab")[1].style.visibility="hidden";
-                document.querySelectorAll(".tab")[2].style.visibility="hidden";
-                document.querySelectorAll(".tab")[3].style.visibility="hidden";
+            for(i=0;i<3;i++){
+                document.querySelectorAll(".tab")[i].style.visibility="hidden";
+                document.querySelectorAll(".tab")[i].style.z-index="-1";
+            }
                 document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
             }
             function updOut(){
