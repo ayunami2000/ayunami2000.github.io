@@ -46,7 +46,6 @@
             }
         </style>
         <script>
-            var urlParams = new URLSearchParams(window.location.search);
             function tab(tbNum){
                 document.querySelector("#fscreenBtn").style.display="none";
                 document.querySelector("#fscr").style.display="none";
@@ -62,18 +61,18 @@
                 document.querySelector("#fscreenBtn").style.display="initial";
             }
             
-            function save(){
+            /*function save(){
                 for(i=0;i<4;i++){
                     if(document.querySelectorAll(".tab")[i].style.display!="none"){
                         var url = window.location.origin+urlParams.append('tab', toString(i));
-                        alert(window.location.origin+urlParams.append('tab', toString(i)));
                     }
                 }
                 if (history.pushState) {
                     window.history.pushState({path:url},'',url);
                 }
-            }
+            }*/
             window.onload=function(){
+                var urlParams = new URLSearchParams(window.location.search);
                 if(urlParams.has('html')){
                     document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html'));
                 }
