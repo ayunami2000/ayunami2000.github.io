@@ -7,10 +7,10 @@
                 document.querySelectorAll(".tab")[0].style.visibility="visible";
             };
             function tab(tbNum){
-                document.querySelectorAll(".tab")[0].style.visibility="none";
-                document.querySelectorAll(".tab")[1].style.visibility="none";
-                document.querySelectorAll(".tab")[2].style.visibility="none";
-                document.querySelectorAll(".tab")[3].style.visibility="none";
+                document.querySelectorAll(".tab")[0].style.visibility="hidden";
+                document.querySelectorAll(".tab")[1].style.visibility="hidden";
+                document.querySelectorAll(".tab")[2].style.visibility="hidden";
+                document.querySelectorAll(".tab")[3].style.visibility="hidden";
                 document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
             }
         </script>
@@ -18,10 +18,10 @@
     </head>
     <body>
         <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS</h1>
-        <textarea class="tab" style="visibility:none;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
-        <textarea class="tab" style="visibility:none;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
-        <textarea class="tab" style="visibility:none;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
-        <iframe id="output" class="tab" style="visibility:none;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" src="data:text/html,"></iframe>
+        <textarea class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
+        <textarea class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
+        <textarea class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
+        <iframe id="output" class="tab" style="visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" src="data:text/html,"></iframe>
         <div style="position:absolute;right:0;bottom:0;width:100px;height:100%;">
             <span style="position:absolute;right:0;bottom:75%;"><a href="javascript:;" onclick="tab(0);">HTML</a></span>
             <span style="position:absolute;right:0;bottom:50%;"><a href="javascript:;" onclick="tab(1);">CSS</a></span>
