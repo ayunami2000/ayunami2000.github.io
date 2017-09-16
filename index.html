@@ -36,6 +36,16 @@
             div.tab:hover,div.tab:active,div.tab:focus {
                 border: 1px solid #000;
             }
+            .fscreen{
+                width:100vw;
+                height:100vh;
+                z-index:15;
+                position:absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+            }
             /* Portrait */
             @media screen and (orientation:portrait) {
                 div.tab,div.tab:hover,div.tab:active,div.tab:focus{}
@@ -47,35 +57,20 @@
         </style>
         <script>
             function tab(tbNum){
-            for(i=0;i<4;i++){
+                document.querySelector("#fscreenBtn").style.display="none";
+                document.querySelector("#output").removeAttribute("class");
+            for(i=0;i<4;i
+                
                 document.querySelectorAll(".tab")[i].style.visibility="hidden";
                 document.querySelectorAll(".tab")[i].style.zIndex="0";
             }
-                //document.querySelector("#fscreenOut").remove();
-                //document.querySelector("#fscreen").style.visibility="hidden";
                 document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
                 document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
             }
             function output(){
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
-                //document.querySelector("#fscreen").style.visibility="visible";
+                document.querySelector("#fscreenBtn").style.display="initial";
             }
-            /*function fscreen(){
-                var fscreen = document.createElement("IFRAME");
-fscreen.id="fscreenOut";
-fscreen.style.backgroundColor="white";
-fscreen.style.border="0";
-fscreen.style.position="absolute";
-fscreen.style.top="0";
-fscreen.style.bottom="0";
-fscreen.style.left="0";
-fscreen.style.right="0";
-fscreen.style.width="100%";
-fscreen.style.height="100%";
-fscreen.style.zIndex="15";
-fscreen.src=document.querySelector("#output").src;
-document.body.appendChild(fscreen);
-            }*/
             window.onload=function(){
                 tab(0);
             }
@@ -83,7 +78,7 @@ document.body.appendChild(fscreen);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS</h1><br><!--<button id="fscreen" style="visibility:hidden;" onclick="fscreen();">Fullscreen</button>-->
+        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS</h1><br><!--<button id="fscreenBtn" style="display:none;" onclick="document.querySelector('#output').class='fscreen';">Fullscreen</button>-->
         <textarea class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
         <textarea class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
         <textarea class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
