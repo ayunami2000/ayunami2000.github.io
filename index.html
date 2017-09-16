@@ -73,16 +73,16 @@
                 }
             }
             window.onload=function(){
-                if(window.location.hash.slice(1).split("|")[0] != ""){
+                if(window.location.hash.slice(1).split("|")[0] !== ""){
                     document.querySelectorAll(".tab")[0].value=atob(window.location.hash.slice(1).split("|")[0]);
                 }
-                if(window.location.hash.slice(1).split("|")[1] != ""){
+                if(window.location.hash.slice(1).split("|")[1] !== ""){
                     document.querySelectorAll(".tab")[1].value=atob(window.location.hash.slice(1).split("|")[1]);
                 }
-                if(window.location.hash.slice(1).split("|")[2] != ""){
+                if(window.location.hash.slice(1).split("|")[2] !== ""){
                     document.querySelectorAll(".tab")[2].value=atob(window.location.hash.slice(1).split("|")[2]);
                 }
-                if(window.location.hash.slice(1).split("|")[3] == 0||1||2||3){
+                if(window.location.hash.slice(1).split("|")[3] === 0||1||2||3){
                     tab(window.location.hash.slice(1).split("|")[3]);
                 }else{tab(0);}
             }
