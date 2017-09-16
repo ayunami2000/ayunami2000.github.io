@@ -77,21 +77,23 @@
                 }
             }*/
             window.onload=function(){
-                /*if(window.location.search.get("html")){
-                    document.querySelectorAll(".tab")[0].value=atob(window.location.search.get("html"));
+                var urlParams = new URLSearchParams(window.location.search);
+                console.log(urlParams.get('tab'));
+                console.log(urlParams.append('tab', '1'));
+                if(urlParams.has('html')){
+                    document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html'));
                 }
-                if(window.location.search.get("css")){
-                    document.querySelectorAll(".tab")[1].value=atob(window.location.search.get("css"));
+                if(urlParams.has('css')){
+                    document.querySelectorAll(".tab")[1].value=atob(urlParams.get('css'));
                 }
-                if(window.location.search.get("js")){
-                    document.querySelectorAll(".tab")[2].value=atob(window.location.search.get("js"));
+                if(urlParams.has('js')){
+                    document.querySelectorAll(".tab")[2].value=atob(urlParams.has('js'));
                 }
-                if(window.location.search.get("tab")){
-                    tab(window.location.search.get("tab"));
+                if(urlParams.has('tab')){
+                    tab(urlParams.get('tab'));
                 }else{
                 tab(0);
-                }*/
-            tab(<?php if(isset($_GET['tab'])){echo $_GET['tab'];}else{echo "0";} ?>);
+                }
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
