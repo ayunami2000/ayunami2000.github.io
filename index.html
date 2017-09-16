@@ -61,29 +61,32 @@
                 document.querySelector("#fscreenBtn").style.display="initial";
             }
             function save(){
-                var url = window.location.href.split("#")[0];
+                var url = window.location.origin;
                 for(i=0;i<3;i++){
                     url+=btoa(document.querySelectorAll(".tab")[i].value)+"|";
-                    if(document.querySelectorAll(".tab")[i].style.display != "none"){
+                    if(document.querySelectorAll(".tab")[i].style.display !== "none"){
                         url+=toString(i);
                     }
                 }
-                if(document.querySelectorAll(".tab")[3].style.display != "none"){
+                if(document.querySelectorAll(".tab")[3].style.display !== "none"){
                     url+="3";
+                }
+                if (history.pushState) {
+                    window.history.pushState({path:url},'',url);
                 }
             }
             window.onload=function(){
-                if(window.location.hash.slice(1).split("|")[0] !== ""){
-                    document.querySelectorAll(".tab")[0].value=atob(window.location.hash.slice(1).split("|")[0]);
+                if(window.location.search.slice(1).split("&")[0] !== ""){
+                    document.querySelectorAll(".tab")[0].value=atob(window.location.search.slice(1).split("&")[0]);
                 }
-                if(window.location.hash.slice(1).split("|")[1] !== ""){
-                    document.querySelectorAll(".tab")[1].value=atob(window.location.hash.slice(1).split("|")[1]);
+                if(window.location.search.slice(1).split("&")[1] !== ""){
+                    document.querySelectorAll(".tab")[1].value=atob(window.location.search.slice(1).split("&")[1]);
                 }
-                if(window.location.hash.slice(1).split("|")[2] !== ""){
-                    document.querySelectorAll(".tab")[2].value=atob(window.location.hash.slice(1).split("|")[2]);
+                if(window.location.search.slice(1).split("&")[2] !== ""){
+                    document.querySelectorAll(".tab")[2].value=atob(window.location.search.slice(1).split("&")[2]);
                 }
-                if(window.location.hash.slice(1).split("|")[3] === 0||1||2||3){
-                    tab(window.location.hash.slice(1).split("|")[3]);
+                if(window.location.search.slice(1).split("&")[3] === 0||1||2||3){
+                    tab(window.location.search.slice(1).split("&")[3]);
                 }else{tab(0);}
             }
         </script>
