@@ -61,7 +61,7 @@
                 document.querySelector("#fscreenBtn").style.display="initial";
             }
             function save(){
-                var url = window.location.split("#")[0];
+                var url = window.location.href.split("#")[0];
                 for(i=0;i<3;i++){
                     url+=btoa(document.querySelectorAll(".tab")[i].value)+"|";
                     if(document.querySelectorAll(".tab")[i].style.display != "none"){
