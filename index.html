@@ -69,7 +69,7 @@
                     }
                 }
                 if(document.querySelectorAll(".tab")[3].style.display != "none"){
-                    url+="4";
+                    url+="3";
                 }
             }
             window.onload=function(){
@@ -82,7 +82,7 @@
                 if(window.location.hash.slice(1).split("|")[2] != ""){
                     document.querySelectorAll(".tab")[2].value=atob(window.location.hash.slice(1).split("|")[2]);
                 }
-                if(!isNaN(window.location.hash.slice(1).split("|")[3])){
+                if(window.location.hash.slice(1).split("|")[3] == 0||1||2||3){
                     tab(window.location.hash.slice(1).split("|")[3]);
                 }else{tab(0);}
             }
