@@ -78,7 +78,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS</h1><br><button id="fscreenBtn" style="display:none;" onclick="document.querySelector('#output').class='fscreen';">Fullscreen</button>
+        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS</h1>
         <textarea class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
         <textarea class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
         <textarea class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
@@ -89,5 +89,6 @@
             <span style="position:absolute;right:0;bottom:30%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(2);">JS</a></span>
             <span style="position:absolute;right:0;bottom:15%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(3);output();">Output</a></span>
         </div>
+        <button id="fscreenBtn" style="position:absolute;top:0;right:0;display:none;" onclick="document.querySelector('#output').class='fscreen';">Fullscreen</button>
     </body>
 </html>
