@@ -66,6 +66,7 @@
                 history.pushState({urlPath:url},"",url);
             }
             window.onload=function(){
+                if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
                 var urlParams = new URLSearchParams(window.location.search);
                 if(urlParams.has('html')){
                     document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html'));
@@ -80,8 +81,8 @@
                     tab(urlParams.get('tab'));
                 }else{
                     tab(0);
-                    document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 }
+                document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
