@@ -61,10 +61,18 @@
                 document.querySelector("#fscreenBtn").style.display="initial";
             }
             window.onload=function(){
-                //set html
-                //set css
-                //set js
-                tab(window.location.search.slice(1).split("&")[4]);
+                if(window.location.search.slice(1).split("&")[0] != ""){
+                    document.querySelectorAll(".tab")[0].value=window.location.search.slice(1).split("&")[0];
+                }
+                if(window.location.search.slice(1).split("&")[1] != ""){
+                    //set css
+                }
+                if(window.location.search.slice(1).split("&")[2] != ""){
+                    //set js
+                }
+                if(!isNaN(window.location.search.slice(1).split("&")[4])){
+                    tab(window.location.search.slice(1).split("&")[4]);
+                }
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
