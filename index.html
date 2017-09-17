@@ -106,15 +106,14 @@
                 }else{
                     tab(0);
                 }
+                document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 if(urlParams.has('fullscreen')){
-                    tab(3);
                     document.querySelector('#hidebtn').style.display='inline';
                     document.querySelector('#fscr').style.display='inline';
                     document.querySelector('#fscr').src=document.querySelector('#output').src;
                     document.querySelector('#output').src='data:text/html,';
                     document.querySelector('#fscreenBtn').innerHTML='X';
                 }
-                document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
