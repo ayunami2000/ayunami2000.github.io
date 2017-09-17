@@ -62,7 +62,7 @@
             }
             
             function save(){
-                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3";
+                var url = window.location.origin+"?html="+encodeURIcomponent(btoa(document.querySelectorAll(".tab")[0].value))+"&css="+encodeURIcomponent(btoa(document.querySelectorAll(".tab")[1].value))+"&js="+encodeURIcomponent(btoa(document.querySelectorAll(".tab")[2].value))+"&tab=3";
                 history.pushState({urlPath:url},"",url);
             }
             window.onload=function(){
