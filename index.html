@@ -46,6 +46,11 @@
             }
         </style>
         <script>
+            function visible(elm) {
+                if(!elm.offsetHeight && !elm.offsetWidth) { return false; }
+                if(getComputedStyle(elm).visibility === 'hidden') { return false; }
+                return true;
+            }
             function output(){
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 document.querySelector("#fscreenBtn").style.display="initial";
@@ -53,7 +58,7 @@
             function save(){
                 var tab = 3;
                 for(i=0;i<4;i++){
-                    if(!document.querySelectorAll(".tab")[i].style.visibility=="hidden"){
+                    if(visible(document.querySelectorAll(".tab")[i])){
                         tab = i;
                     }
                 }
