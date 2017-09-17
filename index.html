@@ -75,6 +75,7 @@
                     document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
                     document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
                     save();
+                    if(tbNum==3){output();}
             }
             window.onload=function(){
                 var urlParams = new URLSearchParams(window.location.search);
