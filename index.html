@@ -61,7 +61,6 @@
                 history.pushState({urlPath:url},"",url);
             }
             function tab(tbNum){
-                if(tbNum==3){output();}
                     document.querySelector("#fscreenBtn").style.display="none";
                     document.querySelector("#fscr").style.display="none";
                 for(i=0;i<4;i++){
@@ -86,6 +85,9 @@
                 }
                 if(urlParams.has('tab')){
                     tab(parseInt(urlParams.get('tab')));
+                    if(parseInt(urlParams.get('tab'))==3){
+                        output();
+                    }
                 }else{
                     tab(0);
                 }
