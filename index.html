@@ -52,6 +52,11 @@
                 if(getComputedStyle(elm).visibility === 'hidden') { return false; }
                 return true;
             }
+            function getTab(trgt){
+                for(i=0;i<4;i++){
+                    if(getComputedStyle(document.querySelectorAll(trgt)[i]).visibility === 'hidden'){}else{return document.querySelectorAll(trgt)[i];}
+                }
+            }
             function output(){
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 document.querySelector("#fscreenBtn").style.display="initial";
@@ -119,6 +124,11 @@
                     document.querySelector('#fscreenBtn').innerHTML='X';
                     save(true);
                 }
+                /*
+                setInterval(function(){
+                    if(getTab(".tab").value != ){}
+                }, 300);
+                */
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,9 +136,9 @@
     <body>
         <!--clipboard.js-->
         <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS</h1>
-        <textarea oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
-        <textarea oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
-        <textarea oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
+        <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
+        <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
+        <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
         <div class="tab" style="-webkit-overflow-scrolling:touch;overflow:scroll;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;"><iframe style="border:0;width:100%;height:100%;" id="output" src="data:text/html,"></iframe></div>
         <div style="text-align:center;position:absolute;right:0;bottom:0;width:100px;height:100%;">
             <span style="position:absolute;right:0;bottom:60%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(0);">HTML</a></span>
