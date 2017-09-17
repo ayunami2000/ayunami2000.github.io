@@ -64,7 +64,7 @@
                     }
                 }
                 if(fscr){fscreen = "&fullscreen";}
-                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fullscreen;
+                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fscreen;
                 history.pushState({urlPath:url},"",url);
             }
             function isFScr(fscr){
