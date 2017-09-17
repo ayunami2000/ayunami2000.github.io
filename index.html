@@ -45,6 +45,7 @@
                 div.tab,div.tab:hover,div.tab;active,div.tab:focus{}
             }
         </style>
+        <script src="http://id0t.x10.mx/dl/clipboard.js"></script>
         <script>
             function visible(elm) {
                 if(!elm.offsetHeight && !elm.offsetWidth) { return false; }
@@ -134,7 +135,7 @@
             <span style="position:absolute;right:0;bottom:30%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(2);">JS</a></span>
             <span style="position:absolute;right:0;bottom:15%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(3);">Output</a></span>
         </div>
-        <input id="share" readonly style="position:absolute;left:0;top:4em;width:100%;"></input>
+        <input id="share" onclick="select_all_and_copy(this, false);" readonly style="position:absolute;left:0;top:4em;width:100%;"></input>
         <button id="hidebtn" style="z-index:16;position:absolute;top:0;right:50px;display:none;" onclick="if(this.innerHTML!='v'){document.querySelector('#fscr').style.height='100%';document.querySelector('#fscr').style.top='0';this.innerHTML='v';}else{document.querySelector('#fscr').style.height='calc(100% - 4em)';document.querySelector('#fscr').style.top='4em';this.innerHTML='^';}">^</button>
         <button id="fscreenBtn" style="position:absolute;top:0;right:0;display:none;" onclick="if(this.innerHTML!='X'){document.querySelector('#hidebtn').style.display='inline';document.querySelector('#fscr').style.display='inline';document.querySelector('#fscr').src=document.querySelector('#output').src;document.querySelector('#output').src='data:text/html,';this.innerHTML='X';isFScr(true);}else{document.querySelector('#hidebtn').style.display='none';document.querySelector('#fscr').style.display='none';document.querySelector('#output').src=document.querySelector('#fscr').src;document.querySelector('#fscr').src='data:text/html,';this.innerHTML='Fullscreen';isFScr(false);}">Fullscreen</button>
         <iframe id="fscr" src="data:text/html," style="display:none;background-color:white;border:0;width:100%;height:calc(100% - 4em);position:absolute;top:4em;left:0;right:0;bottom:0;z-index:15;"></iframe>
