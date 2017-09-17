@@ -65,8 +65,8 @@
                 var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab;
                 history.pushState({urlPath:url},"",url);
             }
-            funcion isFScr(isFScr){
-                if(isFScr){
+            function isFScr(fscr){
+                if(fscr){
                     var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3&fullscreen";
                     history.pushState({urlPath:url},"",url);
                 }else{
