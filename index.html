@@ -46,34 +46,31 @@
             }
         </style>
         <script>
-            function tab(tbNum){
-                if(tbNum==3){output();}
-                document.querySelector("#fscreenBtn").style.display="none";
-                document.querySelector("#fscr").style.display="none";
-            for(i=0;i<4;i++){
-                document.querySelectorAll(".tab")[i].style.visibility="hidden";
-                document.querySelectorAll(".tab")[i].style.zIndex="0";
-            }
-                document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
-                document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
-                save();
-            }
             function output(){
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 document.querySelector("#fscreenBtn").style.display="initial";
             }
-            
             function save(){
                 var tab = 3;
                 for(i=0;i<4;i++){
                     if(!document.querySelectorAll(".tab")[i].style.visibility=="hidden"){
-                        alert(i);
                         tab = i;
                     }
                 }
                 var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab;
                 history.pushState({urlPath:url},"",url);
-                alert(url);
+            }
+            function tab(tbNum){
+                if(tbNum==3){output();}
+                    document.querySelector("#fscreenBtn").style.display="none";
+                    document.querySelector("#fscr").style.display="none";
+                for(i=0;i<4;i++){
+                    document.querySelectorAll(".tab")[i].style.visibility="hidden";
+                    document.querySelectorAll(".tab")[i].style.zIndex="0";
+                }
+                    document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
+                    document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
+                    save();
             }
             window.onload=function(){
                 var urlParams = new URLSearchParams(window.location.search);
