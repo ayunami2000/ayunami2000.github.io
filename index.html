@@ -55,14 +55,16 @@
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 document.querySelector("#fscreenBtn").style.display="initial";
             }
-            function save(){
+            function save(fscr){
                 var tab = 3;
+                var fscreen = "";
                 for(i=0;i<4;i++){
                     if(visible(document.querySelectorAll(".tab")[i])){
                         tab = i;
                     }
                 }
-                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab;
+                if(fscr){fscreen = "&fullscreen";}
+                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fullscreen;
                 history.pushState({urlPath:url},"",url);
             }
             function isFScr(fscr){
@@ -113,6 +115,7 @@
                     document.querySelector('#fscr').src=document.querySelector('#output').src;
                     document.querySelector('#output').src='data:text/html,';
                     document.querySelector('#fscreenBtn').innerHTML='X';
+                    
                 }
             }
         </script>
