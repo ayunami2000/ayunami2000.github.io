@@ -62,20 +62,20 @@
             }
             
             function save(){
-                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value).replace(/\+/g,"%2B")+"&css="+btoa(document.querySelectorAll(".tab")[1].value).replace(/\+/g,"%2B")+"&js="+btoa(document.querySelectorAll(".tab")[2].value).replace(/\+/g,"%2B")+"&tab=3";
+                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3";
                 history.pushState({urlPath:url},"",url);
             }
             window.onload=function(){
                 var urlParams = new URLSearchParams(window.location.search);
                 if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
                 if(urlParams.has('html')){
-                    document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html'));
+                    document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html').replace(/ /g,"+"));
                 }
                 if(urlParams.has('css')){
-                    document.querySelectorAll(".tab")[1].value=atob(urlParams.get('css'));
+                    document.querySelectorAll(".tab")[1].value=atob(urlParams.get('css').replace(/ /g,"+"));
                 }
                 if(urlParams.has('js')){
-                    document.querySelectorAll(".tab")[2].value=atob(urlParams.get('js'));
+                    document.querySelectorAll(".tab")[2].value=atob(urlParams.get('js').replace(/ /g,"+"));
                 }
                 if(urlParams.has('tab')){
                     tab(parseInt(urlParams.get('tab')));
