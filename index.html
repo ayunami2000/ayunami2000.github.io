@@ -47,6 +47,7 @@
         </style>
         <script>
             function tab(tbNum){
+                if(tbNum==3){output();}
                 document.querySelector("#fscreenBtn").style.display="none";
                 document.querySelector("#fscr").style.display="none";
             for(i=0;i<4;i++){
@@ -55,6 +56,7 @@
             }
                 document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
                 document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
+                save();
             }
             function output(){
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
@@ -62,7 +64,13 @@
             }
             
             function save(){
-                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3";
+                var tab = 3;
+                for(i=0;i<4;i++){
+                    if(!document.querySelectorAll(".tab")[i].style.display="none"){
+                        tab = i;
+                    }
+                }
+                var url = window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab;
                 history.pushState({urlPath:url},"",url);
             }
             window.onload=function(){
@@ -97,7 +105,7 @@
             <span style="position:absolute;right:0;bottom:60%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(0);">HTML</a></span>
             <span style="position:absolute;right:0;bottom:45%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(1);">CSS</a></span>
             <span style="position:absolute;right:0;bottom:30%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(2);">JS</a></span>
-            <span style="position:absolute;right:0;bottom:15%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(3);output();">Output</a></span>
+            <span style="position:absolute;right:0;bottom:15%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(3);">Output</a></span>
         </div>
         <button id="hidebtn" style="z-index:16;position:absolute;top:0;right:50px;display:none;" onclick="if(this.innerHTML!='v'){document.querySelector('#fscr').style.height='100%';document.querySelector('#fscr').style.top='0';this.innerHTML='v';}else{document.querySelector('#fscr').style.height='calc(100% - 50px)';document.querySelector('#fscr').style.top='50px';this.innerHTML='^';}">^</button>
         <button id="fscreenBtn" style="position:absolute;top:0;right:0;display:none;" onclick="if(this.innerHTML!='X'){document.querySelector('#hidebtn').style.display='inline';document.querySelector('#fscr').style.display='inline';document.querySelector('#fscr').src=document.querySelector('#output').src;document.querySelector('#output').src='data:text/html,';this.innerHTML='X';}else{document.querySelector('#hidebtn').style.display='none';document.querySelector('#fscr').style.display='none';document.querySelector('#output').src=document.querySelector('#fscr').src;document.querySelector('#fscr').src='data:text/html,';this.innerHTML='Fullscreen';}">Fullscreen</button>
