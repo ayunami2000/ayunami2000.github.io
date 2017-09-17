@@ -69,7 +69,7 @@
                 var urlParams = new URLSearchParams(window.location.search);
                 if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
                 if(urlParams.has('html')){
-                    document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html').replace(/ /g,"+"));
+                    document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html').split(" ").join("+"));
                 }
                 if(urlParams.has('css')){
                     document.querySelectorAll(".tab")[1].value=atob(urlParams.get('css').replace(/ /g,"+"));
