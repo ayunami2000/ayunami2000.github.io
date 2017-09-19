@@ -63,7 +63,7 @@
             }
             function output(){
                 document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
-                document.querySelector("#fscreenBtn, #popoutbtn").style.display="initial";
+                document.querySelector("#fscreenBtn,#popoutbtn").style.display="initial";
             }
             function save(fscr){
                 var tab = 3;
@@ -89,7 +89,7 @@
                 document.querySelector("#share").value=window.location.href;
             }
             function tab(tbNum){
-                    document.querySelector("#fscreenBtn, #popoutbtn").style.display="none";
+                    document.querySelector("#fscreenBtn,#popoutbtn").style.display="none";
                     document.querySelector("#fscr").style.display="none";
                 for(i=0;i<4;i++){
                     document.querySelectorAll(".tab")[i].style.visibility="hidden";
