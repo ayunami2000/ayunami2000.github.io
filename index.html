@@ -48,7 +48,7 @@
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
             function getURL(){
-                return "data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
+                return "data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
             }
             //http://tinyurl.com/api-create.php?url=http://google.com
             function visible(elm) {
@@ -62,7 +62,7 @@
                 }
             }
             function output(){
-                document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
+                document.querySelector("#output").src="data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 document.querySelector("#popoutbtn").style.display=document.querySelector("#fscreenBtn").style.display="initial";
             }
             function save(fscr){
@@ -121,7 +121,7 @@
                 }else{
                     tab(0);
                 }
-                document.querySelector("#output").src="data:text/html;BASE64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;BASE64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;BASE64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
+                document.querySelector("#output").src="data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
                 if(urlParams.has('fullscreen')&&parseInt(urlParams.get('tab'))==3){
                     document.querySelector('#hidebtn').style.display='inline';
                     document.querySelector('#fscr').style.display='inline';
@@ -141,7 +141,7 @@
     </head>
     <body>
         <!--clipboard.js-->
-        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS</h1>
+        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS <sub><a href="javascript:;">Change theme (coming soon)</a></sub></h1>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
@@ -153,7 +153,7 @@
             <span style="position:absolute;right:0;bottom:15%;line-height:15%;width:inherit;text-align:center;"><a href="javascript:;" onclick="tab(3);">Output</a></span>
         </div>
         <span style="position:absolute;left:0;top:3em;">Share</span>
-        <input id="share" onclick="select_all_and_copy(this, true);" readonly style="position:absolute;right:0;top:4em;width:calc(100% - 4em);"></input>
+        <input id="share" onclick="select_all_and_copy(this,true);" readonly style="position:absolute;right:0;top:4em;width:calc(100% - 4em);"></input>
         <button id="popoutbtn" onclick="var win=window.open(getURL(),'Result');" style="position:absolute;top:2em;right:0;display:none;">Pop out</button>
         <button id="hidebtn" style="z-index:16;position:absolute;top:0;right:3em;display:none;" onclick="if(this.innerHTML!='v'){document.querySelector('#fscr').style.height='100%';document.querySelector('#fscr').style.top='0';this.innerHTML='v';}else{document.querySelector('#fscr').style.height='calc(100% - 4em)';document.querySelector('#fscr').style.top='4em';this.innerHTML='^';}">^</button>
         <button id="fscreenBtn" style="position:absolute;top:0;right:0;display:none;" onclick="if(this.innerHTML!='X'){document.querySelector('#hidebtn').style.display='inline';document.querySelector('#fscr').style.display='inline';document.querySelector('#fscr').src=document.querySelector('#output').src;document.querySelector('#output').src='data:text/html,';this.innerHTML='X';isFScr(true);}else{document.querySelector('#hidebtn').style.display='none';document.querySelector('#fscr').style.display='none';document.querySelector('#output').src=document.querySelector('#fscr').src;document.querySelector('#fscr').src='data:text/html,';this.innerHTML='Fullscreen';isFScr(false);}">Fullscreen</button>
