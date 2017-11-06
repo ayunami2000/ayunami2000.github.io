@@ -49,7 +49,7 @@
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
             function getURL(){
-                return "data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'>"+(document.querySelector("#dispErr").checked?"<script>window.onerror=function(msg,url,ln,col,err){alert(msg,url,ln,col,err);}</scr"+"ipt>":"")+"<script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
+                return "data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'>"+(document.querySelector("#dispErr").checked?"<script>window.onerror=function(msg,url,ln,col,err){alert('Error\n\n'+msg+'\nLine '+ln+'\nColumn '+col+'\nStack Trace\n'+err);}</scr"+"ipt>":"")+"<script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
             }
             //http://tinyurl.com/api-create.php?url=http://google.com
             function visible(elm) {
