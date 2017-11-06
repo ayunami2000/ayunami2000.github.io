@@ -153,7 +153,7 @@
     </head>
     <body>
         <!--clipboard.js-->
-        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS 
+        <h1><span onclick="theme(theme()=='pink'?'plain':'pink');try{document.querySelector('#surprise').style.display='';}">HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS </span>
           <sub style="font-size:0.5em;">
             <span style="display:inline-block;position:relative;">
               <span id="frstBx"><input style="display:none;" id="theme" type="checkbox" onchange="theme(this.checked?'dark':'plain');this.nextSibling.style.color=this.checked?'springgreen':'inherit';"/><label for="theme">Dark</label>
@@ -164,6 +164,7 @@
               </span>
             </span>
           </sub>
+          <span id="surprise">You found the secret theme!</span>
         </h1>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
