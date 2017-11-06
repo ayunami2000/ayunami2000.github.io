@@ -48,6 +48,12 @@
         </style>
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
+            function themeCol(style){
+                if(typeof style==="undefined"){return;}
+                if(style=="color"){return theme()=="dark"?"white":theme()=="pink"?"pink":"black";}
+                //background
+                //maybe link
+            }
             function theme(theme){
                 if(typeof theme==="undefined"){return localStorage.getItem("theme");}
                 if(theme=="dark"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='black';document.querySelectorAll('body,textarea,#share')[i].style.color='white';};localStorage.setItem("theme","dark");return;}
@@ -151,7 +157,7 @@
             <span style="display:inline-block;position:relative;">
               <span id="frstBx"><input id="theme" type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';};localStorage.setItem('theme',this.checked?'dark':'plain');"/>Dark</span>
               <span style="display:inline-block;position:relative;top:-0.25em;">
-                <input id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();"/>Err Notify
+                <input id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();this.nextSibling.style.color=this.checked?'blue':themeCol('color');"/><label for="dispErr">Err Notify</label>
               </span>
             </span>
           </sub>
