@@ -54,7 +54,7 @@
                 if(style=="background-color"){return theme()=="dark"?"black":theme()=="pink"?"purple":"white";}
                 return null;
             }
-            function theme(theme){
+            function theme(theme){alert(theme());
                 if(typeof theme==="undefined"){return localStorage.getItem("theme");}
                 for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=themeCol("background-color");document.querySelectorAll('body,textarea,#share')[i].style.color=themeCol("color");};
                 localStorage.setItem("theme",theme);
