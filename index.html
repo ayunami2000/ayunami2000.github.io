@@ -116,6 +116,7 @@
             window.onload=function(){
                 theme(theme());
                 document.querySelector("#theme").checked=(theme()=="dark");
+                document.querySelector("#theme").nextSibling.style.color=document.querySelector("#theme").checked?'springgreen':'inherit';
                 document.querySelector("#share").value=window.location.href;
                 var urlParams = new URLSearchParams(window.location.search);
                 if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
@@ -154,9 +155,9 @@
         <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS 
           <sub style="font-size:0.5em;">
             <span style="display:inline-block;position:relative;">
-              <span id="frstBx"><input style="visibility:hidden;" id="theme" type="checkbox" onchange="theme(this.checked?'dark':'plain');this.nextSibling.style.color=this.checked?'springgreen':'inherit';"/><label for="theme">Dark</label></span>
-              <span style="display:inline-block;position:relative;top:-0.25em;">
-                <input style="visibility:hidden;" id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();this.nextSibling.style.color=this.checked?'springgreen':'inherit';"/><label for="dispErr">Err Notify</label>
+              <span id="frstBx"><input style="display:none;" id="theme" type="checkbox" onchange="theme(this.checked?'dark':'plain');this.nextSibling.style.color=this.checked?'inherit':'springgreen';"/><label for="theme">Dark</label></span>
+              <span style="display:inline-block;position:relative;top:-0.5em;">
+                <input style="display:none;" id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();this.nextSibling.style.color=this.checked?'springgreen':'inherit';"/><label for="dispErr">Err Notify</label>
               </span>
             </span>
           </sub>
