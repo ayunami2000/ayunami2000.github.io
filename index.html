@@ -115,6 +115,8 @@
                     if(tbNum==3){output();}
             }
             window.onload=function(){
+                if(theme()=="pink"){document.querySelector("#surprise").outerHTML="";}
+                
                 theme(theme());
                 document.querySelector("#theme").checked=(theme()=="dark");
                 document.querySelector("#theme").nextSibling.style.color=document.querySelector("#theme").checked?'springgreen':'inherit';
