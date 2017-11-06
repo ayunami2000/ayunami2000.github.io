@@ -5,6 +5,7 @@
         <style>
             body,html{overflow:hidden;}
             *{font-family:Arial,"Arial",Calabri,"Calabri";}
+            #frstBx{content:' ';display:block;}
              /* unvisited link */
             a:link {
                 color: #09f;
@@ -139,8 +140,7 @@
         <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS 
           <sub style="font-size:0.5em;">
             <span style="display:inline-block;position:relative;top:-1.5em;">
-              <input type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';}"/>Dark
-              <br>
+              <span id="frstBx"><input type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';}"/>Dark</span>
               <span style="display:inline;">
                 <input id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();"/>Catch
               </span>
