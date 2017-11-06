@@ -47,8 +47,7 @@
         </style>
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
-            //err handling
-            document.querySelector("iframe").contentWindow.onerror=function(msgOrEvt,src,ln,col,err){document.querySelector("#dispErr").checked?alert("Error: "+msgOrEvt+"\nLine "+ln+"\nCol "+col+"\n"+err):return false;return false;};
+            try{document.querySelector("iframe").contentWindow.onerror=function(msgOrEvt,src,ln,col,err){document.querySelector("#dispErr").checked?alert("Error: "+msgOrEvt+"\nLine "+ln+"\nCol "+col+"\n"+err):return false;return false;};}catch(e){alert(e);}
             function getURL(){
                 return "data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
             }
