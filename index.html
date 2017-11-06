@@ -140,7 +140,7 @@
           <sub style="font-size:0.5em;">
             <span id="frstBx" style="display:inline-block;position:relative;top:-1.5em;"><input type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';}"/>Dark</span>
             <span id="scndBx" style="display:inline-block;position:relative;left:-4em"><input id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();"/>Catch</span>
-            <script>document.querySelector("#scndBx").style.left=parseInt(-document.querySelector("#frstBx").getBoundingClientRect().width+(this.getBoundingClientRect().width-window.getComputedStyle(this,null).getPropertyValue("width")))+"px";</script>
+            <script>document.querySelector("#scndBx").style.left=parseInt(-document.querySelector("#frstBx").getBoundingClientRect().width+((this.getBoundingClientRect().width-window.getComputedStyle(this,null).getPropertyValue("width"))/2))+"px";</script>
           </sub>
         </h1>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
