@@ -109,7 +109,8 @@
                     if(tbNum==3){output();}
             }
             window.onload=function(){
-                theme(localStorage.getItem("theme"));
+                theme(theme());
+                if(theme()=="dark"){document.querySelector("#frstBx").checked="";}
                 document.querySelector("#share").value=window.location.href;
                 var urlParams = new URLSearchParams(window.location.search);
                 if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
