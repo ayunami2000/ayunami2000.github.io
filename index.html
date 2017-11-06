@@ -71,7 +71,7 @@
             }
             function getTab(trgt){
                 for(i=0;i<4;i++){
-                    if(getComputedStyle(document.querySelectorAll(trgt)[i]).visibility === 'hidden'){}else{return document.querySelectorAll(trgt)[i];}
+                    if(getComputedStyle(document.querySelectorAll(trgt)[i]).visibility==='hidden'){}else{return document.querySelectorAll(trgt)[i];}
                 }
             }
             function output(){
@@ -154,9 +154,9 @@
         <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS 
           <sub style="font-size:0.5em;">
             <span style="display:inline-block;position:relative;">
-              <span id="frstBx"><input id="theme" type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';};localStorage.setItem('theme',this.checked?'dark':'plain');"/>Dark</span>
+              <span id="frstBx"><input style="visibility:hidden;" id="theme" type="checkbox" onchange="theme(this.checked?'dark':'plain');this.nextSibling.style.color=this.checked?'springgreen':'inherit';"/><label for="theme">Dark</label></span>
               <span style="display:inline-block;position:relative;top:-0.25em;">
-                <input id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();this.nextSibling.style.color=this.checked?'springgreen':'inherit';"/><label for="dispErr">Err Notify</label>
+                <input style="visibility:hidden;" id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();this.nextSibling.style.color=this.checked?'springgreen':'inherit';"/><label for="dispErr">Err Notify</label>
               </span>
             </span>
           </sub>
