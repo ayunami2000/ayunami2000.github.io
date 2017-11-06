@@ -48,15 +48,16 @@
         </style>
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
-            function themeCol(style){
+            function themeCol(style,theme){
                 if(typeof style==="undefined"){return;}
-                if(style=="color"){return theme()=="dark"?"white":theme()=="pink"?"pink":"black";}
-                if(style=="background-color"){return theme()=="dark"?"black":theme()=="pink"?"purple":"white";}
+                if(typeof theme==="undefined"){var theme=theme();}
+                if(style=="color"){return theme=="dark"?"white":theme=="pink"?"pink":"black";}
+                if(style=="background-color"){return theme=="dark"?"black":theme=="pink"?"purple":"white";}
                 return null;
             }
             function theme(theme){
                 if(typeof theme==="undefined"){return localStorage.getItem("theme");}
-                for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=themeCol("background-color");document.querySelectorAll('body,textarea,#share')[i].style.color=themeCol("color");};
+                for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=themeCol("background-color","dark");document.querySelectorAll('body,textarea,#share')[i].style.color=themeCol("color","dark");};
                 localStorage.setItem("theme",theme);
                 return;
             }
