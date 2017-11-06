@@ -48,6 +48,11 @@
         </style>
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
+            function theme(theme){
+                if(typeof theme==='undefined'){return;}
+                if(theme=="dark"){return;}
+                if(theme=="pink"){return;}
+            }
             function getURL(){
                 return "data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'>"+(document.querySelector("#dispErr").checked?"<script>window.onerror=function(msg,url,ln,col,err){alert('Error\\n\\n'+msg+'\\nLine '+ln+'\\nColumn '+col+'\\nStack Trace\\n'+err);}</scr"+"ipt>":"")+"<script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>\n"+document.querySelectorAll(".tab")[0].value);
             }
@@ -102,6 +107,7 @@
                     if(tbNum==3){output();}
             }
             window.onload=function(){
+                theme(localStorage.getItem("theme"));
                 document.querySelector("#share").value=window.location.href;
                 var urlParams = new URLSearchParams(window.location.search);
                 if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
@@ -140,7 +146,7 @@
         <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS 
           <sub style="font-size:0.5em;">
             <span style="display:inline-block;position:relative;">
-              <span id="frstBx"><input type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';}"/>Dark</span>
+              <span id="frstBx"><input type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';};localStorage.setItem('theme',this.checked?'dark':'plain');"/>Dark</span>
               <span style="display:inline-block;position:relative;top:-0.25em;">
                 <input id="dispErr" type="checkbox" onchange="document.querySelector('#output').src=getURL();"/>Err Notify
               </span>
