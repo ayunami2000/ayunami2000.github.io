@@ -110,7 +110,7 @@
             }
             window.onload=function(){
                 theme(theme());
-                if(theme()=="dark"){document.querySelector("#frstBx").checked="";}
+                document.querySelector("#frstBx").checked=(theme()=="dark");
                 document.querySelector("#share").value=window.location.href;
                 var urlParams = new URLSearchParams(window.location.search);
                 if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js')){window.location.href=window.location.origin+"?html=&css=&js=&tab=0";}
