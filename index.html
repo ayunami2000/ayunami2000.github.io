@@ -49,9 +49,10 @@
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
             function theme(theme){
-                if(typeof theme==='undefined'){return;}
-                if(theme=="dark"){return;}
-                if(theme=="pink"){return;}
+                if(typeof theme==="undefined"){return;}
+                if(theme=="dark"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='black';document.querySelectorAll('body,textarea,#share')[i].style.color='white';};return;}
+                if(theme=="pink"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='purple';document.querySelectorAll('body,textarea,#share')[i].style.color='pink';};return;}
+                return;
             }
             function getURL(){
                 return "data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'>"+(document.querySelector("#dispErr").checked?"<script>window.onerror=function(msg,url,ln,col,err){alert('Error\\n\\n'+msg+'\\nLine '+ln+'\\nColumn '+col+'\\nStack Trace\\n'+err);}</scr"+"ipt>":"")+"<script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>\n"+document.querySelectorAll(".tab")[0].value);
