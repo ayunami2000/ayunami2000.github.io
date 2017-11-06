@@ -5,7 +5,7 @@
         <style>
             body,html{overflow:hidden;}
             *{font-family:Arial,"Arial",Calabri,"Calabri";}
-            #frstBx,#frstBx+span{content:' ';display:block;}
+            #frstBx{content:' ';display:block;}
              /* unvisited link */
             a:link {
                 color: #09f;
@@ -166,7 +166,7 @@
               </span>
             </span>
           </sub>
-          <span id="surprise" style="font-size:0.5em;display:none;cursor:pointer" onclick="this.outerHTML='';">You found the secret theme!</span>
+          <span id="surprise" style="display:block;position:absolute;top:5.5em;left:0;right:0;width:100%;font-size:0.5em;display:none;cursor:pointer" onclick="this.outerHTML='';">You found the secret theme!</span>
         </h1>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
