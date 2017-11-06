@@ -49,9 +49,10 @@
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
             function theme(theme){
-                if(typeof theme==="undefined"){return;}
-                if(theme=="dark"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='black';document.querySelectorAll('body,textarea,#share')[i].style.color='white';};return;}
-                if(theme=="pink"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='purple';document.querySelectorAll('body,textarea,#share')[i].style.color='pink';};return;}
+                if(typeof theme==="undefined"){return localStorage.getItem("theme");}
+                if(theme=="dark"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='black';document.querySelectorAll('body,textarea,#share')[i].style.color='white';};localStorage.setItem("theme","dark");return;}
+                if(theme=="pink"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='purple';document.querySelectorAll('body,textarea,#share')[i].style.color='pink';};localStorage.setItem("theme","pink");return;}
+                if(theme=="plain"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='white';document.querySelectorAll('body,textarea,#share')[i].style.color='black';};localStorage.setItem("theme","plain");return;}
                 return;
             }
             function getURL(){
