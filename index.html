@@ -57,7 +57,7 @@
             }
             function theme(theme){
                 if(typeof theme==="undefined"){return localStorage.getItem("theme");}
-                for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=themeCol("background-color","dark");document.querySelectorAll('body,textarea,#share')[i].style.color=themeCol("color","dark");};
+                for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=themeCol("background-color",theme);document.querySelectorAll('body,textarea,#share')[i].style.color=themeCol("color",theme);};
                 localStorage.setItem("theme",theme);
                 return;
             }
