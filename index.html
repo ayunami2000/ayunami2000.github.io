@@ -51,12 +51,12 @@
             function themeCol(style){
                 if(typeof style==="undefined"){return;}
                 if(style=="color"){return theme()=="dark"?"white":theme()=="pink"?"pink":"black";}
-                //background
-                //maybe link
+                if(style=="background-color"){return theme()=="dark"?"black":theme()=="pink"?"purple":"white";}
+                return null;
             }
             function theme(theme){
                 if(typeof theme==="undefined"){return localStorage.getItem("theme");}
-                if(theme=="dark"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='black';document.querySelectorAll('body,textarea,#share')[i].style.color='white';};localStorage.setItem("theme","dark");return;}
+                if(theme=="dark"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=themeCol("color");document.querySelectorAll('body,textarea,#share')[i].style.color=themeCol("background-color");};localStorage.setItem("theme","dark");return;}
                 if(theme=="pink"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='purple';document.querySelectorAll('body,textarea,#share')[i].style.color='pink';};localStorage.setItem("theme","pink");return;}
                 if(theme=="plain"){for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor='white';document.querySelectorAll('body,textarea,#share')[i].style.color='black';};localStorage.setItem("theme","plain");return;}
                 return;
