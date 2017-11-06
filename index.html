@@ -47,6 +47,8 @@
         </style>
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
+            //err handling
+            document.querySelector("iframe").contentWindow.onerror=function(msgOrEvt,src,ln,col,err){document.querySelector("#dispErr").checked?alert("Error: "+msgOrEvt+"\nLine "+ln+"\nCol "+col+"\n"+err):return false;return false;};
             function getURL(){
                 return "data:text/html;base64,"+btoa("<link rel='stylesheet' type='text/css' href='data:text/css;base64,"+btoa(document.querySelectorAll(".tab")[1].value)+"'><script type='text/javascript' src='data:text/javascript;base64,"+btoa(document.querySelectorAll(".tab")[2].value)+"'></scr"+"ipt>"+document.querySelectorAll(".tab")[0].value);
             }
@@ -130,18 +132,13 @@
                     document.querySelector('#fscreenBtn').innerHTML='X';
                     save(true);
                 }
-                /*
-                setInterval(function(){
-                    if(getTab(".tab").value != ){}
-                }, 300);
-                */
             }
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <!--clipboard.js-->
-        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS <sub style="font-size:0.5em;"><input type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';}"/>Dark</sub></h1>
+        <h1>HT<sub><sup>ml</sup></sub>CS<sub><sup>s</sup></sub>JS <sub style="font-size:0.5em;"><input type="checkbox" onchange="for(var i=0;i<document.querySelectorAll('body,textarea,#share').length;i++){document.querySelectorAll('body,textarea,#share')[i].style.backgroundColor=this.checked?'black':'white';document.querySelectorAll('body,textarea,#share')[i].style.color=this.checked?'white':'black';}"/>Dark<input id="dispErr" type="checkbox"/>Display Errors</sub></h1>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="HTML"></textarea>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="CSS"></textarea>
         <textarea onchange="save(false);" oncut="save(false);" onpaste="save(false);" onkeypress="save(false);" onkeyup="save(false);" class="tab" style="resize:none;visibility:hidden;position:absolute;left:0;bottom:0;width:calc(100% - 100px);height:75%;" placeholder="JS"></textarea>
