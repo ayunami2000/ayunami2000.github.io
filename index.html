@@ -23,8 +23,10 @@
         </style>
         <script type="text/javascript" src="https://ayunami2000.github.io/clipboard.js"></script>
         <script>
-            window.btoa=function(str){return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,function(match,p1){return String.fromCharCode(parseInt(p1,16));}));}
-            window.atob=function(str){return decodeURIComponent(Array.prototype.map.call(atob(str),function(c){return '%'+('00'+c.charCodeAt(0).toString(16)).slice(-2);}).join(''));}
+            var oldbtoa=window.btoa;
+            window.btoa=function(str){return oldbtoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,function(match,p1){return String.fromCharCode(parseInt(p1,16));}));}
+            var oldatob=window.atob;
+            window.atob=function(str){return decodeURIComponent(Array.prototype.map.call(oldatob(str),function(c){return '%'+('00'+c.charCodeAt(0).toString(16)).slice(-2);}).join(''));}
             function themeCol(style,theme){
                 if(typeof style==="undefined")return;
                 if(typeof theme==="undefined")var theme=theme();
