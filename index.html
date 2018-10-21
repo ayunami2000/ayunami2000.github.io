@@ -51,10 +51,9 @@
                 document.querySelector("#output").src=getURL();
                 document.querySelector("#popoutbtn").style.display=document.querySelector("#fscreenBtn").style.display="initial";
             }
-            function save(fscr){
-                var tab=3;
+            function save(fscr,tab){
                 var fscreen="";
-                for(i=0;i<4;i++){if(visible(document.querySelectorAll(".tab")[i]))tab=i;}
+                if(typeof tab=='undefined')for(i=0;i<4;i++){if(visible(document.querySelectorAll(".tab")[i]))tab=i;}
                 if(fscr)fscreen="&fullscreen";
                 var url=window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fscreen;
                 history.replaceState({urlPath:url},"",url);
@@ -73,7 +72,7 @@
                 }
                 document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
                 document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
-                save(0);
+                save(0,tbNum);
                 if(tbNum==3)output();
             }
             window.onload=function(){
