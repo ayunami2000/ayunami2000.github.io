@@ -73,7 +73,11 @@
                 document.querySelectorAll(".tab")[tbNum].style.visibility="visible";
                 document.querySelectorAll(".tab")[tbNum].style.zIndex="10";
                 save(0,tbNum);
-                if(tbNum==3)output();
+                if(tbNum==3){
+                    output();
+                }else{
+                    document.querySelector("#output").src="data:text/html,";
+                }
             }
             window.onload=function(){
                 if(theme()=="pink")document.querySelector("#surprise").outerHTML="";
@@ -90,7 +94,7 @@
                     tab(parseInt(urlParams.get('tab')));
                     if(parseInt(urlParams.get('tab'))==3)output();
                 }else{tab(0);}
-                document.querySelector("#output").src=getURL();
+                //document.querySelector("#output").src=getURL();
                 if(urlParams.has('fullscreen')&&parseInt(urlParams.get('tab'))==3){
                     document.querySelector('#hidebtn').style.display=document.querySelector('#fscr').style.display='inline';
                     document.querySelector('#fscr').src=document.querySelector('#output').src;
