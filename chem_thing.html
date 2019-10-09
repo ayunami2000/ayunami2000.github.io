@@ -28,6 +28,9 @@
         height:1.25em;
         font-size:1.5em;
       }
+      u{
+        font-weight:bold;
+      }
     </style>
   </head>
   <body>
@@ -53,7 +56,7 @@
       function calc(){
         if(document.querySelector('select:invalid'))return;
         var m=prompt('Mass Of '+ct+' (Grams):'),rt=prompt('Room Temperature (Degrees Celsius):');
-        h.innerHTML='<center><b><u>'+ct+'</u></b></center>';
+        h.innerHTML='<u>'+ct+'</u>';
         h.innerHTML+='<b>Specific Heat: </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g deg C</sub>';
         h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' deg C';
         h.innerHTML+='<br><b>Heat Of Fusion: </b>'+hf[ci-1]+' <sup>J</sup>/<sub>g</sub>';
