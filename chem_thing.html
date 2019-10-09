@@ -34,7 +34,7 @@
     <table>
       <tr>
         <td>
-          <select onchange="ci=this.selectedIndex;cs=this.options[ci].value;" required>
+          <select onchange="ci=this.selectedIndex;cs=this.options[ci].value;ct=this.options[ci].text;" required>
             <option value="" disabled selected hidden>Choose a metal...</option>
             <option value="aluminum">Aluminum</option>
             <option value="iron">Iron</option>
@@ -49,14 +49,17 @@
       </tr>
     </table>
     <script>
-      var ci=0,cs='',sh=[0.897,0.449,0.385,0.502],hf=[321,209,207,237],mp=[660,1535,1083,1370],h=document.querySelector('h1');
+      var ci=0,cs='',ct='',sh=[0.897,0.449,0.385,0.502],hf=[321,209,207,237],mp=[660,1535,1083,1370],h=document.querySelector('h1');
       function calc(){
         if(document.querySelector('select:invalid'))return;
-        var m=prompt('mass of '+cs+' (grams):');
-        h.innerHTML='<b>Specific Heat Of '+cs.split('',1)[0].toUpperCase()+cs.slice(1).toLowerCase()+': </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g deg C</sub>';
-        h.innerHTML+='<br><b>Melting Point Of '+cs.split('',1)[0].toUpperCase()+cs.slice(1).toLowerCase()+': </b>'+mp[ci-1]+' deg C';
-        h.innerHTML+='<br><b>Heat of Fusion Of '+cs.split('',1)[0].toUpperCase()+cs.slice(1).toLowerCase()+': </b>'+hf[ci-1]+' <sup>J</sup>/<sub>g</sub>';
-        h.innerHTML+='<br><hr><br><b>Heat Energy Required To Melt From Room Temperature: </b>'+(m*hf[ci-1]+m*sh[ci-1]*(mp[ci-1]-prompt('room temperature (degrees celsius):')))+' <sup>J</sup>/<sub>g</sub>';
+        var m=prompt('Mass Of '+ct+' (Grams):'),rt=prompt('Room Temperature (Degrees Celsius):');
+        h.innerHTML='<center><b>'+ct+'</b></center>';
+        h.innerHTML+='<b>Specific Heat: </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g deg C</sub>';
+        h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' deg C';
+        h.innerHTML+='<br><b>Heat Of Fusion: </b>'+hf[ci-1]+' <sup>J</sup>/<sub>g</sub>';
+        h.innerHTML+='<br><br><b>Specified Mass: </b>'+rt+' deg C';
+        h.innerHTML+='<br><b>Specified Room Temperature: </b>'+rt+' deg C';
+        h.innerHTML+='<br><hr><br><b>Heat Energy Required To Melt From Room Temperature: </b>'+(m*hf[ci-1]+m*sh[ci-1]*(mp[ci-1]-rt))+' <sup>J</sup>/<sub>g</sub>';
       }
     </script>
   </body>
