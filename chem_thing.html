@@ -55,13 +55,13 @@
       var ci=0,cs='',ct='',sh=[0.897,0.449,0.385,0.502],hf=[321,209,207,237],mp=[660,1535,1083,1370],h=document.querySelector('h1');
       function calc(){
         if(document.querySelector('select:invalid'))return;
-        var m=prompt('Mass Of '+ct+' (Grams):'),rt=prompt('Room Temperature (Degrees Celsius):');
+        var m=prompt('Mass Of '+ct+' (g):'),rt=prompt('Room Temperature (&deg;C):');
         h.innerHTML='<u>'+ct+'</u>';
-        h.innerHTML+='<b>Specific Heat: </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g deg C</sub>';
-        h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' deg C';
+        h.innerHTML+='<b>Specific Heat: </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g&deg;C</sub>';
         h.innerHTML+='<br><b>Heat Of Fusion: </b>'+hf[ci-1]+' <sup>J</sup>/<sub>g</sub>';
-        h.innerHTML+='<br><br><b>Specified Mass: </b>'+rt+' deg C';
-        h.innerHTML+='<br><b>Specified Room Temperature: </b>'+rt+' deg C';
+        h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' &deg;C';
+        h.innerHTML+='<br><br><b>Specified Mass: </b>'+rt+' g';
+        h.innerHTML+='<br><b>Specified Room Temperature: </b>'+rt+' &deg;C';
         h.innerHTML+='<hr><b>Heat Energy Required To Melt From Room Temperature: </b>'+(m*hf[ci-1]+m*sh[ci-1]*(mp[ci-1]-rt))+' <sup>J</sup>/<sub>g</sub>';
       }
     </script>
