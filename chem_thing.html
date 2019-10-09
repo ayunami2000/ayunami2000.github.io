@@ -3,6 +3,7 @@
   <head>
     <title>Chemistry Lab Simulation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta charset="utf-8"/>
     <style>
       *{
         font-family:sans-serif;
@@ -55,7 +56,7 @@
       var ci=0,cs='',ct='',sh=[0.897,0.449,0.385,0.502],hf=[321,209,207,237],mp=[660,1535,1083,1370],h=document.querySelector('h1');
       function calc(){
         if(document.querySelector('select:invalid'))return;
-        var m=prompt('Mass Of '+ct+' (g):'),rt=prompt('Room Temperature (&deg;C):');
+        var m=prompt('Mass Of '+ct+' (g):'),rt=prompt('Room Temperature (°C):');
         h.innerHTML='<u>'+ct+'</u>';
         h.innerHTML+='<br><b>Specific Heat: </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g&deg;C</sub>';
         h.innerHTML+='<br><b>Heat Of Fusion: </b>'+hf[ci-1]+' <sup>J</sup>/<sub>g</sub>';
