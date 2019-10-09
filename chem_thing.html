@@ -1,47 +1,56 @@
 <!doctype html>
 <html>
-<head>
-<title>a</title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<style>
-*{font-family:sans-serif;}
-:root,body,html,table *:not(td *){padding:0;margin:0;}
-html,body,table{
-height:100%;
-margin:0;
-padding:0;
-border:none;
-}
-table{
-table-layout:auto;
-width:100%;
-height:100%;
-text-align:center;
-vertical-align:middle;
-}
-button,select{min-width:1em;height:1.25em;font-size:1.5em;}
-</style>
-</head>
-<body>
-<table>
-<tr>
-<td>
-<select onchange="ci=this.selectedIndex;cs=this.options[ci].value;" required>
-<option value="" disabled selected hidden>Choose a metal...</option>
-<option value="aluminum">Aluminum</option>
-<option value="iron">Iron</option>
-<option value="copper">Copper</option>
-<option value="steel">Steel</option>
-</select>
-<button onclick="if(document.querySelector('select:invalid'))return;var m=prompt('mass of '+cs+' (grams):');document.querySelector('h1').innerHTML='<b>Specific Heat Of '+cs.split('',1)[0].toUpperCase()+cs.slice(1).toLowerCase()+': </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g deg C</sub><br><b>Heat Energy Required To Melt From Room Temperature: </b>'+(m*hf[ci-1]+m*sh[ci-1]*(mp[ci-1]-prompt('room temperature (degrees celsius):')))+' <sup>J</sup>/<sub>g</sub>';">Calculate</button>
-</td>
-<td>
-<h1 style="display:inline;font-weight:inherit;"></h1>
-</td>
-</tr>
-</table>
-<script>
-var ci=0,cs='',sh=[0.897,0.449,0.385,0.502],hf=[321,209,207,237],mp=[660,1535,1083,1370];
-</script>
-</body>
+  <head>
+    <title>a</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <style>
+      *{font-family:sans-serif;}
+      :root,body,html,table,table *:not(td *){
+        padding:0;margin:0;
+      }
+        html,body,table{
+        height:100%;
+        border:none;
+      }
+      table{
+        table-layout:auto;
+        width:100%;
+        height:100%;
+        text-align:center;
+        vertical-align:middle;
+      }
+      button,select{
+        min-width:1em;
+        height:1.25em;
+        font-size:1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <select onchange="ci=this.selectedIndex;cs=this.options[ci].value;" required>
+            <option value="" disabled selected hidden>Choose a metal...</option>
+            <option value="aluminum">Aluminum</option>
+            <option value="iron">Iron</option>
+            <option value="copper">Copper</option>
+            <option value="steel">Steel</option>
+          </select>
+          <button onclick="calc()">Calculate</button>
+        </td>
+        <td>
+          <h1 style="display:inline;font-weight:inherit;"></h1>
+        </td>
+      </tr>
+    </table>
+    <script>
+      var ci=0,cs='',sh=[0.897,0.449,0.385,0.502],hf=[321,209,207,237],mp=[660,1535,1083,1370];
+      function calc(){
+        if(document.querySelector('select:invalid'))return;
+        var m=prompt('mass of '+cs+' (grams):');
+        document.querySelector('h1').innerHTML='<b>Specific Heat Of '+cs.split('',1)[0].toUpperCase()+cs.slice(1).toLowerCase()+': </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g deg C</sub><br><b>Heat Energy Required To Melt From Room Temperature: </b>'+(m*hf[ci-1]+m*sh[ci-1]*(mp[ci-1]-prompt('room temperature (degrees celsius):')))+' <sup>J</sup>/<sub>g</sub>';
+      }
+    </script>
+  </body>
 </html>
