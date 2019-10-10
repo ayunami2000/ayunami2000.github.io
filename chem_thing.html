@@ -53,20 +53,20 @@
       </tr>
     </table>
     <script>
-      var ci=0,cs='',ct='',sh=['.897','.449','.385','.502'],hf=['321','209','207','237'],mp=['660.','1535','1083','1370.'],h=document.querySelector('h1');
+      var ci=0,cs='',ct='',sh=['.897','.449','.385','.502'],hf=['321','209','207','237'],mp=['660.','1535','1083','1370.'],h=document.querySelector('h1'),lastnumsigfigs=0;
       function calc(){
         if(document.querySelector('select:invalid'))return;
         var m=prompt('Mass Of '+ct+' (g) (with significant figures):'),rt=prompt('Room Temperature (°C) (with significant figures):');
         if(isNaN(Number.parseFloat(m)))return alert('Error: Mass is not a number.');
         if(isNaN(Number.parseFloat(rt)))return alert('Error: Room Temperature is not a number.');
         h.innerHTML='<u>'+ct+'</u>';
-        h.innerHTML+='<br><b>Specific Heat: </b>'+sh[ci-1]+' <sup>J</sup>/<sub>g&deg;C</sub>';
+        h.innerHTML+='<br><b>Specific Heat: </b>0'+sh[ci-1]+' <sup>J</sup>/<sub>g&deg;C</sub>';
         h.innerHTML+='<br><b>Heat Of Fusion: </b>'+hf[ci-1]+' <sup>J</sup>/<sub>g</sub>';
         h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' &deg;C';
         h.innerHTML+='<br><br><b>Specified Mass: </b>'+toSigFigs(m,[m])+' g';
         h.innerHTML+='<br><b>Specified Room Temperature: </b>'+toSigFigs(rt,[rt])+' &deg;C';
         h.innerHTML+='<hr><b>Heat Energy Required To Melt From Room Temperature: </b>'+toSigFigs((m*p(hf[ci-1])+m*p(sh[ci-1])*(p(mp[ci-1])-rt))+'',[m,hf[ci-1],sh[ci-1],mp[ci-1],rt])+' <sup>J</sup>/<sub>g</sub>';
-        h.innerHTML+='<br><i>(with significant figures)</i>';
+        h.innerHTML+='<br><i>(Number Of Significant Figures: '+lastnumsigfigs+')</i>';
       }
       function numSigFigs(i){
         var num=p(i);
@@ -78,6 +78,7 @@
         var num=p(i);
         if(isNaN(num))return 0;
         var sf=Math.min(...n.map(function(e){return numSigFigs(e+'');}));
+        lastnumsigfigs=sf;
         return num.toPrecision(sf)+(sf==i.replace(/^0+/g,'').length?'.':'');
       }
       function p(n){
