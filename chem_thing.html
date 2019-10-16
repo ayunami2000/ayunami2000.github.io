@@ -65,7 +65,7 @@
         h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' &deg;C';
         h.innerHTML+='<br><br><b>Specified Mass: </b>'+toSigFigs(m,[m])+' g';
         h.innerHTML+='<br><b>Specified Room Temperature: </b>'+toSigFigs(rt,[rt])+' &deg;C';
-        h.innerHTML+='<hr><b>Heat Energy Required To Melt From Room Temperature: </b>'+toSigFigs((m*p(hf[ci-1])+m*p(sh[ci-1])*(p(mp[ci-1])-rt))+'',[m,hf[ci-1],sh[ci-1],mp[ci-1],rt])+' <sup>J</sup>/<sub>g</sub>';
+        h.innerHTML+='<hr><b>Heat Energy Required To Melt From Room Temperature: </b>'+toSigFigs((m*p(hf[ci-1])+m*p(sh[ci-1])*(p(mp[ci-1])-rt))+'',[m,hf[ci-1],sh[ci-1],mp[ci-1],rt])+' J';
         h.innerHTML+='<br><i>(Number Of Significant Figures: '+lastnumsigfigs+')</i>';
       }
       function numSigFigs(i){
