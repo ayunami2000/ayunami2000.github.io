@@ -68,7 +68,7 @@
         h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' &deg;C';
         h.innerHTML+='<br><b>Normal Room Temperature: </b>23 &deg;C';//'+toSigFigs(rt,[rt])+'
         h.innerHTML+='<br><br><b>Specified Mass: </b>'+toSigFigs(m,[m])+' g';
-        var resans=toSigFigs((m*p(hf[ci-1])+m*p(sh[ci-1])*(p(mp[ci-1])-23/*rt*/))+'',[m]);
+        var resans=m==0?0:toSigFigs((m*p(hf[ci-1])+m*p(sh[ci-1])*(p(mp[ci-1])-23/*rt*/))+'',[m]));
         h.innerHTML+='<hr><b>Heat Energy Required To Melt From Room Temperature: </b>'+((resans.includes('e')&&(+resans).toString().includes('.'))?resans:(+resans))+' J';
         h.innerHTML+='<br><i>(Number Of Significant Figures: '+lastnumsigfigs+')</i>';
       }
