@@ -56,16 +56,19 @@
       var ci=0,cs='',ct='',sh=['.897','.449','.385','.502'],hf=['321','209','207','237'],mp=['660.','1535','1083','1370.'],h=document.querySelector('h1'),lastnumsigfigs=0;
       function calc(){
         if(document.querySelector('select:invalid'))return;
-        var m=prompt('Mass Of '+ct+' (g) (with significant figures):'),rt=prompt('Room Temperature (°C) (with significant figures):');
+        var m=prompt('Mass Of '+ct+' (g):'),rt=prompt('Room Temperature (°C):', '23');
         if(isNaN(Number.parseFloat(m)))return alert('Error: Mass is not a number.');
-        if(isNaN(Number.parseFloat(rt)))return alert('Error: Room Temperature is not a number.');
+        if(isNaN(Number.parseFloat(rt))){
+          console.log('Error: Room Temperature is not a number. Defaulting to 23.');
+          rt='23';
+        }
         h.innerHTML='<u>'+ct+'</u>';
         h.innerHTML+='<br><b>Specific Heat: </b>0'+sh[ci-1]+' <sup>J</sup>/<sub>g&deg;C</sub>';
         h.innerHTML+='<br><b>Heat Of Fusion: </b>'+hf[ci-1]+' <sup>J</sup>/<sub>g</sub>';
         h.innerHTML+='<br><b>Melting Point: </b>'+mp[ci-1]+' &deg;C';
+        h.innerHTML+='<br><b>Normal Room Temperature: </b>'+toSigFigs(rt,[rt])+' &deg;C';
         h.innerHTML+='<br><br><b>Specified Mass: </b>'+toSigFigs(m,[m])+' g';
-        h.innerHTML+='<br><b>Specified Room Temperature: </b>'+toSigFigs(rt,[rt])+' &deg;C';
-        h.innerHTML+='<hr><b>Heat Energy Required To Melt From Room Temperature: </b>'+toSigFigs((m*p(hf[ci-1])+m*p(sh[ci-1])*(p(mp[ci-1])-rt))+'',[m,hf[ci-1],sh[ci-1],mp[ci-1],rt])+' J';
+        h.innerHTML+='<hr><b>Heat Energy Required To Melt From Room Temperature: </b>'+toSigFigs((m*p(hf[ci-1])+m*p(sh[ci-1])*(p(mp[ci-1])-rt))+'',[m,hf[ci-1]])+' J';
         h.innerHTML+='<br><i>(Number Of Significant Figures: '+lastnumsigfigs+')</i>';
       }
       function numSigFigs(i){
