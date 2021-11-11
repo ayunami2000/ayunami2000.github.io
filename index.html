@@ -175,12 +175,12 @@ document.querySelector('sdnv').style.animation='sdnvFadeOut 0.5s ease-out both';
 <nav><a href="javascript:;" onclick="this.innerHTML=(this.innerHTML=='&equiv;'?'&lt;':'&equiv;');for(i=0;i<document.querySelectorAll('sdnv li').length;i++){document.querySelectorAll('sdnv li')[i].style.animation=(document.querySelectorAll('sdnv li')[i].style.animation.includes('showSdnv')?'hideSdnv 0.5s ease-in both':'showSdnv 0.5s ease-out both');};document.querySelector('sdnv').style.animation=(document.querySelector('sdnv').style.animation.includes('sdnvFadeIn')?'sdnvFadeOut 0.5s ease-out both':'sdnvFadeIn 0.5s ease-in both');">&equiv;</a><span>shh, now is not the time.</span></nav>
 <sdnv style="-webkit-animation-fill-mode:both;animation-fill-mode:both;">
 <ul>
-<li style="width:0;" onclick="document.querySelector('iframe').src='home.html';closeNav();">&emsp;Home</li>
-<li style="width:0;top:2em;" onclick="document.querySelector('iframe').src='discord.html';closeNav();">&emsp;Discord</li>
-<li style="text-align:center;width:0;top:10em;" onclick="document.querySelector('iframe').src='about.html';closeNav();"><img src="https://s1.postimg.cc/5vcdpj0uzz/F8_F1_E3_C5-_F010-472_E-_AA67-197_F53_CFF22_C.jpg" style="display:inline-block;width:5em;height:5em;border-radius:25%;"></li>
+<li style="width:0;" onclick="pg.src='home.html';closeNav();">&emsp;Home</li>
+<li style="width:0;top:2em;" onclick="pg.src='discord.html';closeNav();">&emsp;Discord</li>
+<li style="text-align:center;width:0;top:10em;" onclick="pg.src='about.html';closeNav();"><img src="https://s1.postimg.cc/5vcdpj0uzz/F8_F1_E3_C5-_F010-472_E-_AA67-197_F53_CFF22_C.jpg" style="display:inline-block;width:5em;height:5em;border-radius:25%;"></li>
 </ul>
 </sdnv>
 <spcr style="display:inline-block;width:100%;padding:0;margin:0;border:0;height:4.375em;"> </spcr>
-<iframe src="home.html">iFrames aren't supported in your browser...you REALLY need to consider upgrading.</iframe>
+<iframe id="pg" src="home.html">iFrames aren't supported in your browser...you REALLY need to consider upgrading.</iframe>
 </body>
 </html>
