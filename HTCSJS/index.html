@@ -23,7 +23,7 @@
             }
             */
         </style>
-        <script type="text/javascript" src="clipboard.js"></script>
+        <script type="text/javascript" src="/clipboard.js"></script>
         <script>
             var oldbtoa=window.btoa;
             window.btoa=function(str){return oldbtoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,function(match,p1){return String.fromCharCode(parseInt(p1,16));}));}
@@ -56,12 +56,12 @@
                 var fscreen="";
                 if(typeof tab=='undefined')for(i=0;i<4;i++){if(visible(document.querySelectorAll(".tab")[i]))tab=i;}
                 if(fscr)fscreen="&fullscreen";
-                var url=window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fscreen;
+                var url=window.location.origin+"/HTCSJS/?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fscreen;
                 history.replaceState({urlPath:url},"",url);
                 document.querySelector("#share").value=window.location.href;
             }
             function isFScr(fscr){
-                var url=window.location.origin+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3"+(fscr?"&fullscreen":"");
+                var url=window.location.origin+"/HTCSJS/?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3"+(fscr?"&fullscreen":"");
                 history.replaceState({urlPath:url},"",url);
                 document.querySelector("#share").value=window.location.href;
             }
