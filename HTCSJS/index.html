@@ -56,12 +56,12 @@
                 var fscreen="";
                 if(typeof tab=='undefined')for(i=0;i<4;i++){if(visible(document.querySelectorAll(".tab")[i]))tab=i;}
                 if(fscr)fscreen="&fullscreen";
-                var url=window.location.origin+"/HTCSJS/?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fscreen;
+                var url=window.location.pathname+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab="+tab+fscreen;
                 history.replaceState({urlPath:url},"",url);
                 document.querySelector("#share").value=window.location.href;
             }
             function isFScr(fscr){
-                var url=window.location.origin+"/HTCSJS/?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3"+(fscr?"&fullscreen":"");
+                var url=window.location.pathname+"?html="+btoa(document.querySelectorAll(".tab")[0].value)+"&css="+btoa(document.querySelectorAll(".tab")[1].value)+"&js="+btoa(document.querySelectorAll(".tab")[2].value)+"&tab=3"+(fscr?"&fullscreen":"");
                 history.replaceState({urlPath:url},"",url);
                 document.querySelector("#share").value=window.location.href;
             }
@@ -87,7 +87,7 @@
                 document.querySelector("#theme").nextSibling.style.color=document.querySelector("#theme").checked?'springgreen':'inherit';
                 document.querySelector("#share").value=window.location.href;
                 var urlParams=new URLSearchParams(window.location.search);
-                if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js'))window.location.href=window.location.origin+"/HTCSJS/?html=&css=&js=&tab=0";
+                if(!urlParams.has('html')&&!urlParams.has('css')&&!urlParams.has('js'))window.location.href=window.location.pathname+"?html=&css=&js=&tab=0";
                 if(urlParams.has('html'))document.querySelectorAll(".tab")[0].value=atob(urlParams.get('html').split(" ").join("+"));
                 if(urlParams.has('css'))document.querySelectorAll(".tab")[1].value=atob(urlParams.get('css').split(" ").join("+"));
                 if(urlParams.has('js'))document.querySelectorAll(".tab")[2].value=atob(urlParams.get('js').split(" ").join("+"));
