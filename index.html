@@ -1,9 +1,187 @@
 <!DOCTYPE html>
 <html>
-  <head>
-        <script async src="https://arc.io/widget.min.js#HEPCFa3K"></script>
-  </head>
-  <body>
-    WIP
-  </body>
+<head>
+<script async src="https://arc.io/widget.min.js#HEPCFa3K"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="shh, now is not the time.">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-startup-image" href="https://s1.postimg.cc/5dmc0xz1zj/DFF9475_F-85_E7-4_D75-_BDFB-_D49_A395_B593_C.jpg">
+<link rel="apple-touch-icon" href="https://s1.postimg.cc/5vcdpj0uzz/F8_F1_E3_C5-_F010-472_E-_AA67-197_F53_CFF22_C.jpg">
+<title>bEEts</title>
+<style>
+sdnv{
+font-family:"Calabri","Arial","sans-serif";
+position:fixed;
+top:4.375em;
+left:0;
+right:0;
+bottom:0;
+width:100%;
+height:100%;
+z-index:1000;
+display:block;
+-webkit-animation-fill-mode:both;
+animation-fill-mode:both;
+pointer-events: none;
+}
+sdnv li:nth-child(1){
+background-color:#333;
+top:0;
+}
+sdnv li:not(:nth-child(1)){
+background-color:#333;
+}
+sdnv li{
+line-height:2em;
+width:65%;
+padding:0;
+pointer-events: initial;
+color:#ccc;
+display:block;
+position:absolute;
+left:0;
+right:0;
+bottom:calc(-1 * calc(100vh - 1.75em));
+-webkit-animation-fill-mode:both;
+animation-fill-mode:both;
+overflow-y:scroll;
+-webkit-overflow-scrolling:touch;
+cursor:pointer;
+}
+sdnv li:hover{
+background-color:rgb(100,100,100);
+color:rgb(255,255,255);
+}
+nav{
+z-index:100;
+width:100%;
+height:1.75em;
+position:fixed;
+top:0;
+left:0;
+right:0;
+background-color:#333;
+line-height:1.75em;
+font-size:2.5em;
+padding:0;
+padding-left:0.5em;
+color:#ccc;
+font-weight:bold;
+font-family:initial;
+}
+nav span{
+font-family:"Calabri","Arial","sans-serif";
+padding:inherit;
+font-weight:550;
+font-size:0.75em;
+position:relative;
+top:-0.1em;
+}
+nav a{
+text-decoration:none;color:#ccc;
+padding:0 0.25em;
+margin:0 -0.25em;
+}
+nav a:link{
+text-decoration:none;color:#ccc;
+}
+nav a:visited{
+text-decoration:none;color:#ccc;
+}
+nav a:active:hover{
+animation:fadeInBtn 0.5s ease-in;
+-webkit-animation-fill-mode:both;
+animation-fill-mode:both;
+}
+nav a:not(:active):hover{
+animation:fadeOutBtn 0.5s ease-out;
+-webkit-animation-fill-mode:both;
+animation-fill-mode:both;
+}
+iframe{
+padding:0;
+border:0;
+margin:0;
+position:absolute;
+top:4.375em;
+left:0;
+right:0;
+bottom:0;
+width:100%;
+height:calc(100vh - 4.375em);
+z-index:0;
+/*overflow-x:hidden;
+overflow-y:scroll;
+-webkit-overflow-scrolling:touch;*/
+overflow:hidden;
+}
+@keyframes showSdnv{
+from{width:0%;display:block;}
+to{width:65%;display:block;}
+}
+@keyframes hideSdnv{
+0%{width:65%;display:block;}
+99%{width:0%;display:block;}
+100%{width:0%;display:none;}
+}
+@keyframes fadeInBtn{
+0%{
+text-decoration:none;
+color:#ccc;
+background-color:rgba(0,0,0,0);
+border-radius:0;
+}
+50%,100%{
+text-decoration:none;
+color:rgba(204,204,204,0.75);
+background-color:rgba(0,0,0,0.25);
+border-radius:100%;
+}
+}
+@keyframes fadeOutBtn{
+0%{}
+50%{
+text-decoration:none;
+color:rgba(204,204,204,0.75);
+background-color:rgba(0,0,0,0.25);
+border-radius:100%;
+}
+100%{
+text-decoration:none;
+color:#ccc;
+background-color:rgba(0,0,0,0);
+border-radius:0;
+}
+}
+@keyframes sdnvFadeIn{
+from{background-color:rgba(0,0,0,0);}
+to{background-color:rgba(0,0,0,0.5);}
+}
+@keyframes sdnvFadeOut{
+from{background-color:rgba(0,0,0,0.5);}
+to{background-color:rgba(0,0,0,0);}
+}
+</style>
+<script>
+function closeNav(){
+document.querySelector("nav a").innerHTML="&equiv;";
+for(i=0;i<document.querySelectorAll('sdnv li').length;i++){document.querySelectorAll('sdnv li')[i].style.animation='hideSdnv 0.5s ease-in both';}
+document.querySelector('sdnv').style.animation='sdnvFadeOut 0.5s ease-out both';
+}
+</script>
+</head>
+<body style="padding:0;margin:0;border:0;position:relative;overflow:hidden;/*overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;*/color:#ccc;background-color:#454545;" ontouchstart="" onmousedown="">
+<nav><a href="javascript:;" onclick="this.innerHTML=(this.innerHTML=='&equiv;'?'&lt;':'&equiv;');for(i=0;i<document.querySelectorAll('sdnv li').length;i++){document.querySelectorAll('sdnv li')[i].style.animation=(document.querySelectorAll('sdnv li')[i].style.animation.includes('showSdnv')?'hideSdnv 0.5s ease-in both':'showSdnv 0.5s ease-out both');};document.querySelector('sdnv').style.animation=(document.querySelector('sdnv').style.animation.includes('sdnvFadeIn')?'sdnvFadeOut 0.5s ease-out both':'sdnvFadeIn 0.5s ease-in both');">&equiv;</a><span>shh, now is not the time.</span></nav>
+<sdnv style="-webkit-animation-fill-mode:both;animation-fill-mode:both;">
+<ul>
+<li style="width:0;" onclick="document.querySelector('iframe').src='search.html';closeNav();">&emsp;Search</li>
+<li style="width:0;top:2em;" onclick="document.querySelector('iframe').src='home.html';closeNav();">&emsp;Home</li>
+<li style="width:0;top:4em;" onclick="document.querySelector('iframe').src='featured.html';closeNav();">&emsp;Fard</li>
+<li style="text-align:center;width:0;top:10em;" onclick="document.querySelector('iframe').src='about.html';closeNav();"><img src="https://s1.postimg.cc/5vcdpj0uzz/F8_F1_E3_C5-_F010-472_E-_AA67-197_F53_CFF22_C.jpg" style="display:inline-block;width:5em;height:5em;border-radius:25%;"></li>
+</ul>
+</sdnv>
+<spcr style="display:inline-block;width:100%;padding:0;margin:0;border:0;height:4.375em;"> </spcr>
+<iframe src="home.html">iFrames aren't supported in your browser...you REALLY need to consider upgrading.</iframe>
+</body>
 </html>
