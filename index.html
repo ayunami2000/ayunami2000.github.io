@@ -97,6 +97,12 @@
         height:calc(100% - 5.75em);
         width:calc(25% - 2em);
       }
+      .side p{
+        max-height:calc(100% - 5em);
+        padding:0;
+        margin:0;
+        overflow-y:auto;
+      }
       .pages{
         z-index:100;
       }
@@ -156,19 +162,25 @@
   <body bgcolor="#1C1B22" onhashchange="window.scroll(0,0);" onclick="if(event.target.tagName=='A'&&event.target.href==window.location.href)event.preventDefault();">
     <div class="side">
       <h1>github</h1>
+      <p>loading repositories...</p>
+      <script type="text/javascript">
+        var githubelem=document.querySelector(".side p");
+        (async ()=>{
+          var outhtml="",json=await (await fetch("https://api.github.com/users/Paldiu/repos")).json();
+          for(var i=0;i<json.length;i++)outhtml+='<a href="'+json[i].html_url+'" target="_blank"><h3>'+json[i].name+'</h3></a>';
+          githubelem.innerHTML=outhtml;
+        })();
+      </script>
     </div>
     <div class="nav">
       <span><img src="/dl/mcavatar.jpg"/> ayunami2000</span>
       <a href="#home">home</a>
-      <a href="#github">github</a>
+      <a href="https://github.com/ayunami2000">github</a>
       <a href="#about">about</a>
     </div>
     <div class="pages">
       <div class="content" id="about">
         abe<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>
-      </div>
-      <div class="content" id="github">
-        ane<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>
       </div>
       <div class="content" id="home">
         ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>ae<br>
