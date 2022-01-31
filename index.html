@@ -36,7 +36,7 @@
         font-family:"Expletus Sans",sans-serif;
       }
       body{
-        background-color:#1C1B22;
+        background-color:black;
         margin:0;
         margin-top:2em;
       }
@@ -115,6 +115,8 @@
         margin-bottom:6em;
         padding:1em;
         min-height:calc(100vh - 11.75em);
+        transition:transform 500ms ease;
+        background-color:#1C1B22;
       }
       .wrap{
         position:relative;
@@ -138,7 +140,10 @@
         font-size:1em;
       }
       .content:not(:target):not(#home),.content:target:not(#home)~#home{
-        display:none;
+        position:fixed;
+        transform:translate(-50%,0) scale(0,0);
+        visibility:hidden;
+        z-index:-1;
       }
       .nav a,.nav,.side,.content,.footer{
         box-shadow:0 0 0.5em rgba(0,0,0,1);
