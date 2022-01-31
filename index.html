@@ -46,10 +46,11 @@
         position:fixed;
         top:0;
         left:0;
-        right:0;
-        width:100%;
-        height:3em;
+        right:0.625rem;
+        width:calc(100% - 0.625rem);
+        height:3.75rem;
         padding:0;
+        padding-right:0.625rem;
         margin:0;
         border:0;
         text-align:right;
@@ -57,10 +58,10 @@
       }
       .nav a{
         text-decoration:none;
-        border-radius:0.5em;
+        border-radius:0.625rem;
         background-color:#494855;
-        padding:0.25em 0.75em;
-        margin:0.5em 0.25em;
+        padding:0.3125rem 0.9375rem;
+        margin:0.625rem 0.3125rem;
         display:inline-block;
       }
       .nav a:hover{
@@ -78,13 +79,35 @@
         left:0.75rem;
         top:0.5rem;
       }
-      .nav img{
+      .nav span img{
         padding:0;
         margin:0;
         position:relative;
         top:0.375rem;
         width:1.75rem;
         height:1.75rem;
+      }
+      label[for=burg]{
+        padding:0.3125rem 0.9375rem;
+        margin:0.625rem 0.3125rem;
+        display:inline-block;
+        transform:scale(2);
+        cursor:pointer;
+      }
+      #burg{
+        visibility:none;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:1;
+      }
+      #burg:checked + .side{
+        height:0;
+        opacity:0;
+        padding:0;
+        margin:0;
+        pointer-events:none;
+        touch-action:none;
       }
       .side{
         z-index:300;
@@ -115,7 +138,7 @@
         margin-bottom:6em;
         padding:1em;
         min-height:calc(100vh - 11.75em);
-        transition:transform 500ms ease;
+        transition:min-height 500ms ease,margin-bottom 500ms ease;
         background-color:#1C1B22;
       }
       .wrap{
@@ -141,8 +164,13 @@
       }
       .content:not(:target):not(#home),.content:target:not(#home)~#home{
         position:fixed;
-        transform:translate(-50%,0) scale(0,0);
-        visibility:hidden;
+        visibility:none;
+        opacity:0;
+        height:0;
+        min-height:0;
+        margin-bottom:calc(100vh - 6.75em);
+        pointer-events:none;
+        touch-action:none;
         z-index:-1;
       }
       .nav a,.nav,.side,.content,.footer{
@@ -157,6 +185,9 @@
           border:0;
           min-width:calc(100% - 2em);
         }
+        #burg:checked + .side{
+          margin-top:3.75em;
+        }
         .content{
           width:calc(100% - 2em);
           margin-top:0;
@@ -168,10 +199,14 @@
         .nav span{
           font-size:0;
         }
+        .nav{
+          font-size:1em;
+        }
       }
     </style>
   </head>
   <body bgcolor="#1C1B22" onhashchange="window.scroll(0,0);" onclick="if(event.target.tagName=='A'&&event.target.href==window.location.href)event.preventDefault();">
+    <input type="checkbox" id="burg"/>
     <div class="side">
       <a href="https://github.com/ayunami2000"><h1>github</h1></a>
       <p>loading repositories...</p>
@@ -189,6 +224,7 @@
       <a href="#home">home</a>
       <a href="/ayuncraft/javascript">minecraft</a>
       <a href="#about">about</a>
+      <label for="burg">&equiv;</label>
     </div>
     <div class="pages">
       <div class="content" id="about">
