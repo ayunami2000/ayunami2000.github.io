@@ -101,14 +101,6 @@
         left:0;
         z-index:1;
       }
-      #burg:checked + .side{
-        height:0;
-        opacity:0;
-        padding:0;
-        margin:0;
-        pointer-events:none;
-        touch-action:none;
-      }
       .side{
         z-index:300;
         background-color:#24232B;
@@ -185,9 +177,6 @@
           border:0;
           min-width:calc(100% - 2em);
         }
-        #burg:checked + .side{
-          margin-top:3.75em;
-        }
         .content{
           width:calc(100% - 2em);
           margin-top:0;
@@ -201,6 +190,25 @@
         }
         .nav{
           font-size:1em;
+        }
+        #burg:not(:checked) + .side{
+          height:0;
+          opacity:0;
+          padding:0;
+          margin:0;
+          pointer-events:none;
+          touch-action:none;
+          margin-top:3.75em;
+        }
+      }
+      @media screen and (orientation:landscape){
+        #burg:checked + .side{
+          height:0;
+          opacity:0;
+          padding:0;
+          margin:0;
+          pointer-events:none;
+          touch-action:none;
         }
       }
     </style>
