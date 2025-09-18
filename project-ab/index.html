@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Program AB (Alice) test</title>
+    <script src="js/alice.js"></script>
+  </head>
+  <body>
+    Choose a bot:
+    <button onclick="bruh('alice')">alice</button>
+    <button onclick="bruh('super')">super</button>
+    <br />
+    <textarea readonly placeholder="output here..."></textarea>
+    <br />
+    <input type="text" placeholder="chat here!" />
+    <script>
+      const bruhel = document.querySelector("textarea");
+      const bruhel2 = document.querySelector("input[type=text]");
+      bruhel2.onchange = function() {
+        while (bruhel.value.split("\n").length > 5) {
+          bruhel.value = bruhel.value.slice(bruhel.value.indexOf("\n") + 1);
+        }
+        bruhel.value += window.alice.chat(this.value).trim() + "\n";
+        this.value = "";
+      };
+      const olog = console.info;
+      console.info = function(...a) {
+        olog(...a);
+        if (a[0] == "program ab is ready!") {
+          console.info = olog;
+          bruhel.value = a[0] + "\n";
+        }
+      };
+      function bruh(name) {
+        document.querySelectorAll("button").forEach(b => b.disabled = 'disabled');
+        bruhel.value = "loading...\n";
+        main([ "alice.zip", name ]);
+      }
+    </script>
+  </body>
+</html>
